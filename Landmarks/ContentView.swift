@@ -2,20 +2,17 @@
 //  ContentView.swift
 //  Landmarks
 //
-//  Created by Olena Solovii AFT on 06.01.2026.
+//  Created by Hellen Soloviy on 06.01.2026.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        Text("Hello hill")
+            .font(.title)
+            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+            .bold()
     }
 }
 
