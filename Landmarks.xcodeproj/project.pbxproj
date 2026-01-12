@@ -163,11 +163,11 @@
 		40E709812F112BC900D87B23 /* Landmarks */ = {
 			isa = PBXGroup;
 			children = (
+				40E709802F112BC900D87B23 /* LandmarksApp.swift */,
 				40E709752F112BC900D87B23 /* Models */,
 				40E709772F112BC900D87B23 /* Preview Content */,
 				40E7097A2F112BC900D87B23 /* Resources */,
 				40E7097F2F112BC900D87B23 /* Views */,
-				40E709802F112BC900D87B23 /* LandmarksApp.swift */,
 			);
 			path = Landmarks;
 			sourceTree = "<group>";

@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+#Preview {
+    LandmarkDetail(landmarkModel: ModelData().landmarksSourceData[1])
+}
+
+
 struct LandmarkDetail: View {
     var landmarkModel: Landmark
     
@@ -50,6 +55,3 @@ struct LandmarkDetail: View {
     }
 }
 
-#Preview {
-    LandmarkDetail(landmarkModel: landmarksSourceData[1])
-}

@@ -7,7 +7,13 @@
 
 import SwiftUI
 
+#Preview {
+    LandmarkList()
+}
+
 struct LandmarkList: View {
+    @Environment(ModelData.self) var modelData
+    
     @State private var showFavoritesOnly = false
     @State private var isSortedAlphabetically = false
 
@@ -19,9 +25,9 @@ struct LandmarkList: View {
     
     var sortedDataIfNeeded: [Landmark] {
         if isSortedAlphabetically {
-            return landmarksSourceData.sorted(by: { $0.name < $1.name })
+            return modelData.landmarksSourceData.sorted(by: { $0.name < $1.name })
         } else {
-            return landmarksSourceData
+            return modelData.landmarksSourceData
         }
     }
 
@@ -69,6 +75,4 @@ struct LandmarkList: View {
     }
 }
 
-#Preview {
-    LandmarkList()
-}
+

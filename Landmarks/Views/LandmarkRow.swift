@@ -29,7 +29,7 @@ struct LandmarkRow: View {
 }
 
 #Preview {
-    LandmarkRow(model: landmarksSourceData[0])
-    LandmarkRow(model: landmarksSourceData[1])
+    LandmarkRow(model: ModelData().landmarksSourceData[0])
+    LandmarkRow(model: ModelData().landmarksSourceData[1])
 
 }
