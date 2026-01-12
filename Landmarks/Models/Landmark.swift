@@ -10,7 +10,7 @@ import SwiftUI
 import CoreLocation
 
 
-struct Landmark: Hashable, Codable {
+struct Landmark: Hashable, Codable, Identifiable {
     
     struct Coordinates: Hashable, Codable {
         var latitude: Double
