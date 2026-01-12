@@ -9,33 +9,53 @@ import SwiftUI
 
 struct LandmarkList: View {
     @State private var showFavoritesOnly = false
-    
+    @State private var isSortedAlphabetically = false
+
     var filteredData: [Landmark] {
-        landmarksSourceData.filter { model in
+        sortedDataIfNeeded.filter { model in
             (!showFavoritesOnly || model.isFavorite)
         }
     }
     
+    var sortedDataIfNeeded: [Landmark] {
+        if isSortedAlphabetically {
+            return landmarksSourceData.sorted(by: { $0.name < $1.name })
+        } else {
+            return landmarksSourceData
+        }
+    }
+
     var body: some View {
         
         NavigationSplitView {
             
             List {
                 
-                Toggle(isOn: $showFavoritesOnly) {
-                    Text("Favorites only")
-                        .bold()
-                        .foregroundStyle(.blue)
-                }
-                
-                ForEach(filteredData) { landmark in
-                    
-                    NavigationLink {
-                        LandmarkDetail(landmarkModel: landmark)
-                    } label: {
-                        LandmarkRow(model: landmark)
+                Section("Options") {
+                    Toggle(isOn: $showFavoritesOnly) {
+                        Text("Favorites only")
+                            .bold()
+                            .foregroundStyle(.blue)
                     }
                     
+                    Toggle(isOn: $isSortedAlphabetically) {
+                        Text("Sort by alphabet")
+                            .bold()
+                            .foregroundStyle(.blue)
+                    }
+                }
+
+                  
+                Section {
+                    ForEach(filteredData) { landmark in
+                        
+                        NavigationLink {
+                            LandmarkDetail(landmarkModel: landmark)
+                        } label: {
+                            LandmarkRow(model: landmark)
+                        }
+                        
+                    }
                 }
 
             }
