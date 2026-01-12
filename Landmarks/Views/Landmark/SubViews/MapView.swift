@@ -2,7 +2,7 @@
 //  MapView.swift
 //  Landmarks
 //
-//  Created by Olena Solovii AFT on 09.01.2026.
+//  Created by Hellen Soloviy on 09.01.2026.
 //
 
 import SwiftUI

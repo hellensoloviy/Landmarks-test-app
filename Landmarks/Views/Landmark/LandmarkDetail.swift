@@ -2,20 +2,29 @@
 //  LandmarkDetail.swift
 //  Landmarks
 //
-//  Created by Olena Solovii AFT on 12.01.2026.
+//  Created by Hellen Soloviy on 12.01.2026.
 //
 
 import SwiftUI
 
 #Preview {
-    LandmarkDetail(landmarkModel: ModelData().landmarksSourceData[1])
+    LandmarkDetail(landmarkModel: ModelData().landmarksSourceData[1]).environment(ModelData())
 }
 
 
 struct LandmarkDetail: View {
+    
+    @Environment(ModelData.self) var modelData
+
     var landmarkModel: Landmark
     
+    var landmarkIndex: Int {
+        modelData.landmarksSourceData.firstIndex(where: { $0.id == landmarkModel.id })!
+    }
+    
     var body: some View {
+        @Bindable var modelData = modelData
+        
         ScrollView {
 
             MapView(coordinate: landmarkModel.locationCoordinate)
@@ -26,10 +35,13 @@ struct LandmarkDetail: View {
                 .padding(.bottom, -130)
             
             VStack(alignment: .leading) {
-                Text(landmarkModel.name)
-                    .font(.title)
-                    .foregroundColor(.blue)
-                    .bold()
+                HStack {
+                    Text(landmarkModel.name)
+                        .font(.title)
+                        .foregroundColor(.blue)
+                        .bold()
+                    FavoriteButton(isSet: $modelData.landmarksSourceData[landmarkIndex].isFavorite)
+                }
                 
                 HStack {
                     Text(landmarkModel.park)
