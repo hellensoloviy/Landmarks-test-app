@@ -12,6 +12,17 @@ import SwiftUI
     var landmarksSourceData: [Landmark] = load("landmarkData.json")
     var hikes: [Hike] = load("hikeData.json")
 
+    var categories: [String: [Landmark]] {
+        Dictionary(
+            grouping: landmarksSourceData,
+            by: { $0.category.rawValue }
+        )
+    }
+    
+    var featured: [Landmark] {
+        landmarksSourceData.filter { $0.isFeatured }
+    }
+    
 }
 
 
