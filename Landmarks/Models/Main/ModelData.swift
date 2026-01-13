@@ -10,6 +10,8 @@ import SwiftUI
 
 @Observable class ModelData {
     var landmarksSourceData: [Landmark] = load("landmarkData.json")
+    var hikes: [Hike] = load("hikeData.json")
+
 }
 
 
