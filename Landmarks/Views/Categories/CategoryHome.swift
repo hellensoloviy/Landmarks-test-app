@@ -2,7 +2,7 @@
 //  CategoryHome.swift
 //  Landmarks
 //
-//  Created by Olena Solovii AFT on 13.01.2026.
+//  Created by Hellen Soloviy on 13.01.2026.
 //
 
 import SwiftUI
@@ -19,6 +19,8 @@ struct CategoryHome: View {
     var body: some View {
         NavigationSplitView {
             List {
+                
+                //TODO: - need to fix hadcode here later
                 modelData.featured[0].image
                     .resizable()
                     .scaledToFill()
