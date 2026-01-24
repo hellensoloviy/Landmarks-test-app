@@ -16,6 +16,8 @@ struct CategoryHome: View {
     
     @Environment(ModelData.self) var modelData
     
+    @State private var isShowingProfile: Bool = false
+    
     var body: some View {
         NavigationSplitView {
             List {
@@ -34,7 +36,20 @@ struct CategoryHome: View {
                 .listRowInsets(EdgeInsets())
                 
             }
+            .listStyle(.inset)
             .navigationTitle("Featured")
+            .toolbar {
+                Button {
+                    isShowingProfile.toggle()
+                } label: {
+                    Label("User profile", systemImage: "person.crop.circle")
+                }
+                .accessibilityLabel("User profile")
+            }
+            .sheet(isPresented: $isShowingProfile) {
+                ProfileHost()
+                    .environment(modelData)
+            }
 
         } detail: {
             Text("Select a Landmark")
