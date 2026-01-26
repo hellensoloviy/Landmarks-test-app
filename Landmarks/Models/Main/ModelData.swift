@@ -11,7 +11,7 @@ import SwiftUI
 @Observable class ModelData {
     var landmarksSourceData: [Landmark] = load("landmarkData.json")
     var hikes: [Hike] = load("hikeData.json")
-    var pfofile: Profile = Profile.default
+    var profile: Profile = Profile.default
 
     var categories: [String: [Landmark]] {
         Dictionary(
